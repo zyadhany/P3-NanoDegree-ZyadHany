@@ -20,7 +20,7 @@ jobs:
           name: Build Docker image
           environment:
             username: $DOCKER_USERNAME
-            password: $DOCKER_PASSWORD
+            password: $DOCKERHUB_PASSWORD
           command: |
             docker login -u ${username} -p ${password}
             docker build -t reverseproxy ./udagram-reverseproxy
