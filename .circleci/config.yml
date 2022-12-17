@@ -19,8 +19,8 @@ jobs:
       - run:
           name: Build Docker image
           environment:
-            username: "zyadhany"
-            password: "Abearhany123"
+            username: $DOCKER_USERNAME
+            password: $DOCKER_PASSWORD
           command: |
             docker login -u ${username} -p ${password}
             docker build -t reverseproxy ./udagram-reverseproxy
@@ -34,7 +34,7 @@ jobs:
             docker tag reverseproxy zyadhany/reverseproxy:v1
             docker tag udagram-api-user zyadhany/udagram-api-user:v1
             docker tag udagram-api-feed zyadhany/udagram-api-feed:v1
-            docker tag udagram-frontend:latest zyadhany/udagram-front:v1
+            docker tag udagram-frontend zyadhany/udagram-frontend:v1
 
       
       - run:
@@ -43,4 +43,4 @@ jobs:
             docker push zyadhany/reverseproxy:v1
             docker push zyadhany/udagram-api-user:v1
             docker push zyadhany/udagram-api-feed:v1
-            docker push zyadhany/udagram-fdoront:v1
+            docker push zyadhany/udagram-frontend:v1
