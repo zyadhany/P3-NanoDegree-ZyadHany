@@ -4,6 +4,9 @@ jobs:
   build:
     docker:
       - image: cimg/base:stable
+        auth:
+          username: zyadhany
+          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
       - setup_remote_docker 
@@ -15,9 +18,6 @@ jobs:
             curl -L "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o ~/docker-compose
             chmod +x ~/docker-compose
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
-      auth:
-          username: zyadhany
-          password: $DOCKERHUB_PASSWORD
       - run:
           name: Build Docker image
           command: |
