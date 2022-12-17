@@ -1,11 +1,15 @@
 version: 2 # Version of CircleCI
+
 jobs:
   build:
     docker:
       - image: cimg/base:stable
+      auth:
+          username: $DOCKER_USERNAME
+          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
-      - setup_remote_docker
+      - setup_remote_docker 
       - run:
           name: Install Docker Compose
           environment:
@@ -35,8 +39,8 @@ jobs:
       - run:
           name: Push to Docker Hub
           command: |
-            docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             docker push zyadhany/reverseproxy:v1
             docker push zyadhany/udagram-api-user:v1
             docker push zyadhany/udagram-api-feed:v1
-            docker push zyadhany/udagram-front:v1
+            docker push zyadhany/udagram-fdoront:v1
