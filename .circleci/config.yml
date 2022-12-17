@@ -15,7 +15,9 @@ jobs:
             curl -L "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o ~/docker-compose
             chmod +x ~/docker-compose
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
-
+      auth:
+          username: zyadhany
+          password: $DOCKERHUB_PASSWORD
       - run:
           name: Build Docker image
           command: |
@@ -36,7 +38,7 @@ jobs:
       - run:
           name: Push to Docker Hub
           command: |
-            docker login -u zyadhany -p Abearhany123
+            docker login -u username -p Abearhany123
             docker push zyadhany/reverseproxy:v1
             docker push zyadhany/udagram-api-user:v1
             docker push zyadhany/udagram-api-feed:v1
