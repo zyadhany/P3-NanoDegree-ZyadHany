@@ -1,13 +1,9 @@
 version: 2 # Version of CircleCI
 
-workflows:
-  test-env-vars:
-    jobs:
-      - build:
-          context: My_var 
-
+          
 jobs:
   build:
+    context: My_var 
     docker:
       - image: cimg/base:stable
     steps:
