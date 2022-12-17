@@ -6,7 +6,7 @@ jobs:
       - image: cimg/base:stable
         auth:
           username: zyadhany
-          password: $DOCKERHUB_PASSWORD
+          password: Abearhany123
     steps:
       - checkout
       - setup_remote_docker 
@@ -38,7 +38,6 @@ jobs:
       - run:
           name: Push to Docker Hub
           command: |
-            docker login -u username -p Abearhany123
             docker push zyadhany/reverseproxy:v1
             docker push zyadhany/udagram-api-user:v1
             docker push zyadhany/udagram-api-feed:v1
