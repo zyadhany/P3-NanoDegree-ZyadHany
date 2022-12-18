@@ -32,7 +32,7 @@ jobs:
             docker tag reverseproxy zyadhany/reverseproxy:v2
             docker tag udagram-api-user zyadhany/udagram-api-user:v2
             docker tag udagram-api-feed zyadhany/udagram-api-feed:v2
-            docker tag udagram-frontend zyadhany/udagram-frontend:v2
+            docker tag udagram-frontend zyadhany/udagram-frontend:local
 
       
       - run:
@@ -42,4 +42,4 @@ jobs:
             docker push zyadhany/reverseproxy:v2
             docker push zyadhany/udagram-api-user:v2
             docker push zyadhany/udagram-api-feed:v2
-            docker push zyadhany/udagram-frontend:v2
+            docker push zyadhany/udagram-frontend:local
