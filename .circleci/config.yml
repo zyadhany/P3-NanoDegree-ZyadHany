@@ -20,11 +20,7 @@ jobs:
 
       - run:
           name: Build Docker image
-          environment:
-            username: $DOCKER_USERNAME
-            password: $DOCKER_PASSWORD
           command: |
-            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             docker build -t reverseproxy ./udagram-reverseproxy
             docker build -t udagram-api-user ./udagram-api-user
             docker build -t udagram-api-feed ./udagram-api-feed
@@ -33,16 +29,17 @@ jobs:
       - run:
           name: taging
           command: |
-            docker tag reverseproxy zyadhany/reverseproxy:v1
-            docker tag udagram-api-user zyadhany/udagram-api-user:v1
-            docker tag udagram-api-feed zyadhany/udagram-api-feed:v1
-            docker tag udagram-frontend zyadhany/udagram-frontend:v1
+            docker tag reverseproxy zyadhany/reverseproxy:v2
+            docker tag udagram-api-user zyadhany/udagram-api-user:v2
+            docker tag udagram-api-feed zyadhany/udagram-api-feed:v2
+            docker tag udagram-frontend zyadhany/udagram-frontend:v2
 
       
       - run:
           name: Push to Docker Hub
           command: |
-            docker push zyadhany/reverseproxy:v1
-            docker push zyadhany/udagram-api-user:v1
-            docker push zyadhany/udagram-api-feed:v1
-            docker push zyadhany/udagram-frontend:v1
+            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+            docker push zyadhany/reverseproxy:v2
+            docker push zyadhany/udagram-api-user:v2
+            docker push zyadhany/udagram-api-feed:v2
+            docker push zyadhany/udagram-frontend:v2
