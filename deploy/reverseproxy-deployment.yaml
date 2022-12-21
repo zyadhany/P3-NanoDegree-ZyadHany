@@ -15,7 +15,7 @@ spec:
         service: reverseproxy
     spec:
       containers:
-      - image: zyadhany/reverseproxy:v3
+      - image: zyadhany/reverseproxy:v4a
         name: reverseproxy
         imagePullPolicy: Always          
         # resources:
