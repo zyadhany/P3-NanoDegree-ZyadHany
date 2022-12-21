@@ -24,7 +24,7 @@ spec:
             cpu: "250m"
           limits:
             memory: "5024Mi"
-            cpu: "500m"                  
+            cpu: "500m"  
         env:
         - name: URL
           valueFrom:
@@ -64,11 +64,11 @@ spec:
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: env-secret
+              name: env-config
               key: POSTGRES_PASSWORD
         - name: POSTGRES_USERNAME
           valueFrom:
             secretKeyRef:
-              name: env-secret
+              name: env-config
               key: POSTGRES_USERNAME            
       restartPolicy: Always
