@@ -43,5 +43,4 @@ venv/
 
 env-configmap.yaml
 env-secret.yaml
-deploy
 aws-secret.yaml
