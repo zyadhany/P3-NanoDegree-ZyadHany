@@ -5,7 +5,7 @@ metadata:
   labels:
     service: frontend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       service: frontend
@@ -17,15 +17,8 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: zyadhany/udagram-frontend
+        image: zyadhany/udagram-frontend:v3
         imagePullPolicy: Always
-        resources:
-          requests:
-            memory: "4024Mi"
-            cpu: "250m"
-          limits:
-            memory: "5024Mi"
-            cpu: "500m" 
         ports:
         - containerPort: 80
       restartPolicy: Always
