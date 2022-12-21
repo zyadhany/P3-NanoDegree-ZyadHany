@@ -29,17 +29,17 @@ jobs:
       - run:
           name: taging
           command: |
-            docker tag reverseproxy zyadhany/reverseproxy:v2
-            docker tag udagram-api-user zyadhany/udagram-api-user:v2
-            docker tag udagram-api-feed zyadhany/udagram-api-feed:v2
-            docker tag udagram-frontend zyadhany/udagram-frontend:local
+            docker tag reverseproxy zyadhany/reverseproxy:v3
+            docker tag udagram-api-user zyadhany/udagram-api-user:v3
+            docker tag udagram-api-feed zyadhany/udagram-api-feed:v3
+            docker tag udagram-frontend zyadhany/udagram-frontend:v3
 
       
       - run:
           name: Push to Docker Hub
           command: |
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-            docker push zyadhany/reverseproxy:v2
-            docker push zyadhany/udagram-api-user:v2
-            docker push zyadhany/udagram-api-feed:v2
-            docker push zyadhany/udagram-frontend:local
+            docker push zyadhany/reverseproxy:v3
+            docker push zyadhany/udagram-api-user:v3
+            docker push zyadhany/udagram-api-feed:v3
+            docker push zyadhany/udagram-frontend:v3
