@@ -1,14 +1,14 @@
 export const config = {
-  'username': 'postgres',
-  'password': 'abearhany',
-  'database': 'postgres',
-  'host': 'postgres.cezpzdfcbhuo.us-east-1.rds.amazonaws.com',
+  'username': process.env.POSTGRES_USERNAME,
+  'password': process.env.POSTGRES_PASSWORD,
+  'database': process.env.POSTGRES_DB,
+  'host': process.env.POSTGRES_HOST,
   'dialect': 'postgres',
-  'aws_region': 'us-east-1',
+  'aws_region': process.env.AWS_REGION,
   'aws_profile': process.env.AWS_PROFILE,
-  'aws_media_bucket': 'zyad-proj3-12332111',
-  'url': 'http://a8d34c9d1213b45138355aa1eea1aa75-1205240857.us-east-1.elb.amazonaws.com',
+  'aws_media_bucket': process.env.AWS_BUCKET,
+  'url': process.env.URL,
   'jwt': {
-    'secret': 'testing',
+    'secret': process.env.JWT_SECRET,
   },
 };

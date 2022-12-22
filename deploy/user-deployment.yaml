@@ -15,7 +15,7 @@ spec:
         service: backend-user
     spec:
       containers:
-      - image: zyadhany/udagram-api-user:v4a
+      - image: zyadhany/udagram-api-user:7
         name: backend-user
         imagePullPolicy: Always  
         resources:
@@ -24,51 +24,13 @@ spec:
             cpu: "250m"
           limits:
             memory: "5024Mi"
-            cpu: "500m"  
-        env:
-        - name: URL
-          valueFrom:
-            configMapKeyRef:
+            cpu: "500m"                  
+        envFrom:
+          - secretRef:
+              name: env-secret
+          - configMapRef:
               name: env-config
-              key: URL
-        - name: AWS_BUCKET
-          valueFrom:
-            configMapKeyRef:
-              name: env-config
-              key: AWS_BUCKET
-        - name: AWS_PROFILE
-          valueFrom:
-            configMapKeyRef:
-              name: env-config
-              key: AWS_PROFILE
-        - name: AWS_REGION
-          valueFrom:
-            configMapKeyRef:
-              name: env-config
-              key: AWS_REGION
-        - name: JWT_SECRET
-          valueFrom:
-            configMapKeyRef:
-              name: env-config
-              key: JWT_SECRET
-        - name: POSTGRES_DB
-          valueFrom:
-            configMapKeyRef:
-              name: env-config
-              key: POSTGRES_DB
-        - name: POSTGRES_HOST
-          valueFrom:
-            configMapKeyRef:
-              name: env-config
-              key: POSTGRES_HOST
-        - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: env-config
-              key: POSTGRES_PASSWORD
-        - name: POSTGRES_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: env-config
-              key: POSTGRES_USERNAME            
-      restartPolicy: Always
+          - secretRef:
+              name: aws-secret
+        ports:
+          - containerPort: 8080
