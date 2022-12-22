@@ -39,7 +39,7 @@ jobs:
           name: Push to Docker Hub
           command: |
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-            docker push zyadhany/reverseproxy:7
+            docker push zyadhany/reverseproxy:v7
             docker push zyadhany/udagram-api-user:v7
             docker push zyadhany/udagram-api-feed:v7
             docker push zyadhany/udagram-frontend:v7
